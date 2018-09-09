@@ -1,0 +1,15 @@
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ todo.owner }}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{ todo.description }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <span>Due: {{ todo.dueDate | date:'shortDate' }}</span>
+  <mat-progress-bar value="{{ percentageCompleted() }}"> </mat-progress-bar>
+
+</mat-expansion-panel>

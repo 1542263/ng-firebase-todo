@@ -1,10 +1,37 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { TodosComponent } from './todos/todos.component';
+import {
+  MatAccordion, MatExpansionPanel,
+  MatExpansionPanelDescription,
+  MatExpansionPanelHeader,
+  MatExpansionPanelTitle,
+  MatIcon, MatProgressBar,
+  MatToolbar
+} from '@angular/material';
+import { TodoComponent } from './todo/todo.component';
+import { AddNewComponent } from './add-new/add-new.component';
+import { CdkPortalOutlet } from '@angular/cdk/portal';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        ToolbarComponent,
+        TodosComponent,
+        TodoComponent,
+        AddNewComponent,
+        MatIcon,
+        MatToolbar,
+        MatAccordion,
+        MatExpansionPanel,
+        MatExpansionPanelTitle,
+        MatExpansionPanelDescription,
+        MatExpansionPanelHeader,
+        MatProgressBar,
+        CdkPortalOutlet
       ],
     }).compileComponents();
   }));
