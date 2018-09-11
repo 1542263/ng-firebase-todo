@@ -7,8 +7,8 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display title in toolbar', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to ng-todo!');
+    expect(page.getToolbarTitle()).toEqual('Toedeloe');
   });
 });
