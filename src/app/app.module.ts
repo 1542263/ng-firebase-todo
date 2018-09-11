@@ -15,13 +15,6 @@ import {
 } from '@angular/material';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AddNewComponent } from './add-new/add-new.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,10 +31,7 @@ import { AppEffects } from './app.effects';
     MatExpansionModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AppEffects])
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
