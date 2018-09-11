@@ -13,10 +13,12 @@ import {
 import { TodoComponent } from './todo/todo.component';
 import { AddNewComponent } from './add-new/add-new.component';
 import { CdkPortalOutlet } from '@angular/cdk/portal';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ NoopAnimationsModule ],
       declarations: [
         AppComponent,
         ToolbarComponent,
@@ -44,11 +46,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('ng-todo');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-todo!');
   }));
 });
