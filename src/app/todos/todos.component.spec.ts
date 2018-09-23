@@ -4,7 +4,6 @@ import { TodosComponent } from './todos.component';
 import { TodoComponent } from '../todo/todo.component';
 import {
   MatAccordion,
-  MatExpansionModule,
   MatExpansionPanel,
   MatExpansionPanelDescription, MatExpansionPanelHeader,
   MatExpansionPanelTitle, MatIcon,
@@ -13,6 +12,8 @@ import {
 import { AddNewComponent } from '../add-new/add-new.component';
 import { CdkPortalOutlet } from '@angular/cdk/portal';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { combineReducers, StoreModule } from '@ngrx/store';
+import * as fromRoot from '../reducers';
 
 describe('TodosComponent', () => {
   let component: TodosComponent;
@@ -20,7 +21,12 @@ describe('TodosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ NoopAnimationsModule ],
+      imports: [
+        NoopAnimationsModule,
+        StoreModule.forRoot({
+          books: combineReducers(fromRoot.reducers),
+        }),
+      ],
       declarations: [
         TodosComponent,
         TodoComponent,

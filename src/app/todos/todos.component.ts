@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo/todo.model';
+import { State } from '../reducers';
+import { select, Store } from '@ngrx/store';
+import * as fromRoot from '../reducers';
+import { Observable } from 'rxjs';
+import { TodoService } from '../todo.service';
+import { map } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-todos',
@@ -8,20 +14,18 @@ import { Todo } from '../todo/todo.model';
 })
 export class TodosComponent implements OnInit {
 
-  todos: Todo[] = [];
+  todos$: Observable<Todo[]>;
 
-  constructor() {
-    this.todos.push(
-      {id: 0, owner: 'Me', description: 'Do some stuff', creationDate: new Date(2018, 7, 1), dueDate: new Date(2018, 10, 24)});
-    this.todos.push(
-      {id: 1, owner: 'You', description: 'Do some other stuff', creationDate: new Date(2018, 7, 1), dueDate: new Date(2018, 8, 10)});
-    this.todos.push(
-      {id: 2, owner: 'Her', description: 'Do less stuff', creationDate: new Date(2018, 7, 1), dueDate: new Date(2018, 8, 3)});
-    this.todos.push(
-      {id: 3, owner: 'Him', description: 'Do no stuff', creationDate: new Date(2018, 7, 1), dueDate: new Date(2018, 9, 12)});
+  constructor(private store: Store<State>, private todoService: TodoService) {
+    this.todos$ = this.store.pipe(
+      select(fromRoot.getTodos),
+      map(state => state.todos));
+
   }
 
   ngOnInit() {
+    // this.store.dispatch(new LoadTodos());
+    this.todoService.loadTodos();
   }
 
 }

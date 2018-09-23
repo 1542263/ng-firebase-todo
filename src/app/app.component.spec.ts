@@ -14,11 +14,18 @@ import { TodoComponent } from './todo/todo.component';
 import { AddNewComponent } from './add-new/add-new.component';
 import { CdkPortalOutlet } from '@angular/cdk/portal';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { combineReducers, StoreModule } from '@ngrx/store';
+import * as fromRoot from './reducers/';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ NoopAnimationsModule ],
+      imports: [
+        NoopAnimationsModule,
+        StoreModule.forRoot({
+          books: combineReducers(fromRoot.reducers),
+        }),
+      ],
       declarations: [
         AppComponent,
         ToolbarComponent,

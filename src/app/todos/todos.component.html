@@ -1,4 +1,4 @@
-<mat-accordion class="headers-align" *ngFor="let todo of todos">
+<mat-accordion class="headers-align" *ngFor="let todo of todos$ | async">
   <app-todo [todo]="todo"></app-todo>
 </mat-accordion>
 <app-add-new></app-add-new>
