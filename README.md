@@ -1,4 +1,5 @@
-# NgTodo
+[![CircleCI](https://circleci.com/gh/hollannikas/ng-firebase-todo.svg?style=svg)](https://circleci.com/gh/hollannikas/ng-firebase-todo)
+# NgTodo 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
 
